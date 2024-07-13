@@ -27,6 +27,7 @@ class User(Base):
     SignIns = relationship("SignIn", backref="signIn")
     planetsFavorites = relationship("PlanetFavorite", backref="planetFavorite")
     charactersFavorites = relationship("CharacterFavorite", backref="characterFavorite")
+    starshipsFavorite = relationship("StarshipFavorite", backref="starshipFavorite")
 
 class PlanetFavorite(Base):
     __tablename__ = "PlanetFavorite"
@@ -43,6 +44,14 @@ class CharacterFavorite(Base):
     favorite = Column(Boolean, default=False)
 
     user_id = Column(Integer, ForeignKey("User.id"))
+
+class StarshipFavorite(Base):
+    __tablename__ = "StarshipFavorite"
+
+    id = Column(Integer, primary_key=True)
+    favorite = Column(Boolean, default=False) 
+
+    user_id = Column(Integer, ForeignKey("User.id"))   
 
 class SignIn(Base):
     __tablename__ = "SignIn"
@@ -62,8 +71,8 @@ class Character(Base):
     hair_color = Column(String(50), nullable=False)
     eyes_color = Column(String(50), nullable=False)
 
-class Planets(Base):
-    __tablename__ = "Planets"
+class Planet(Base):
+    __tablename__ = "Planet"
 
     id = Column(Integer, primary_key=True)
     planet_name = Column(String(100), nullable=False)
@@ -72,6 +81,13 @@ class Planets(Base):
     surface_water = Column(String(100), nullable=False)
     gravity = Column(String(100), nullable=False)
 
+class Starship(Base):
+    __tablename__ = "Starships"
+
+    id = Column(Integer, primary_key=True)
+    starship_name = Column(String, nullable="False")
+    model = Column(String, nullable="False")
+    manufacturer = Column(String, nullable="False")
 
 
 ## Draw from SQLAlchemy base
