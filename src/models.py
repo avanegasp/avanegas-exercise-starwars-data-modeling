@@ -36,6 +36,7 @@ class PlanetFavorite(Base):
     favorite = Column(Boolean, default=False)
 
     user_id = Column(Integer, ForeignKey("User.id"))
+    planet_id = Column(Integer, ForeignKey("Planet.id"))
 
 class CharacterFavorite(Base):
     __tablename__ = "CharacterFavorite"
@@ -44,6 +45,7 @@ class CharacterFavorite(Base):
     favorite = Column(Boolean, default=False)
 
     user_id = Column(Integer, ForeignKey("User.id"))
+    character_id = Column(Integer, ForeignKey("Character.id"))
 
 class StarshipFavorite(Base):
     __tablename__ = "StarshipFavorite"
@@ -52,7 +54,8 @@ class StarshipFavorite(Base):
     favorite = Column(Boolean, default=False) 
 
     user_id = Column(Integer, ForeignKey("User.id"))   
-
+    starship_id = Column(Integer, ForeignKey("Starship.id"))
+    
 class SignIn(Base):
     __tablename__ = "SignIn"
 
