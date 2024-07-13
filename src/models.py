@@ -25,12 +25,24 @@ class User(Base):
     suscription_date = Column(Date, nullable=False)
 
     SignIns = relationship("SignIn", backref="signIn")
-    
-class Favorite(Base):
-    __tablename__ = "Favorite"
+    planetsFavorites = relationship("PlanetFavorite", backref="planetFavorite")
+    charactersFavorites = relationship("CharacterFavorite", backref="characterFavorite")
+
+class PlanetFavorite(Base):
+    __tablename__ = "PlanetFavorite"
 
     id = Column(Integer, primary_key=True)
     favorite = Column(Boolean, default=False)
+
+    user_id = Column(Integer, ForeignKey("User.id"))
+
+class CharacterFavorite(Base):
+    __tablename__ = "CharacterFavorite"
+
+    id = Column(Integer, primary_key=True)
+    favorite = Column(Boolean, default=False)
+
+    user_id = Column(Integer, ForeignKey("User.id"))
 
 class SignIn(Base):
     __tablename__ = "SignIn"
@@ -40,8 +52,6 @@ class SignIn(Base):
     success = Column(Boolean, nullable=False)    
 
     user_id = Column(Integer, ForeignKey("User.id"))
-
-
 
 class Character(Base):
     __tablename__ = "Character"    
