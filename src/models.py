@@ -13,13 +13,6 @@ class Gender(Enum):
     MALE = "MALE"
     OTRO = "OTRO"    
 
-class Favorite(Base):
-    __tablename__ = "Favorite"
-
-    id = Column(Integer, primary_key=True)
-    favorite = Column(Boolean, default=False)
-
-
 class User(Base):
     __tablename__ = "User"
 
@@ -31,7 +24,23 @@ class User(Base):
     password = Column(String(100), nullable=False)
     suscription_date = Column(Date, nullable=False)
 
-    characters = relationship("Character", backref="character")
+    SignIns = relationship("SignIn", backref="signIn")
+    
+class Favorite(Base):
+    __tablename__ = "Favorite"
+
+    id = Column(Integer, primary_key=True)
+    favorite = Column(Boolean, default=False)
+
+class SignIn(Base):
+    __tablename__ = "SignIn"
+
+    id = Column(Integer, primary_key=True)
+    timestamp = Column(Date, nullable=False)
+    success = Column(Boolean, nullable=False)    
+
+    user_id = Column(Integer, ForeignKey("User.id"))
+
 
 
 class Character(Base):
@@ -42,9 +51,6 @@ class Character(Base):
     character_gender = Column(String(50), nullable=False)
     hair_color = Column(String(50), nullable=False)
     eyes_color = Column(String(50), nullable=False)
-
-    user_id = Column(Integer, ForeignKey("user.id"))
-    character_id = Column(Integer, ForeignKey("user.id"))
 
 class Planets(Base):
     __tablename__ = "Planets"
