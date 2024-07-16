@@ -70,7 +70,7 @@ class Character(Base):
     character_gender = Column(String(50), nullable=False)
     hair_color = Column(String(50), nullable=False)
     eyes_color = Column(String(50), nullable=False)
-    favorite = Column(Boolean, default=False)
+
 
 class Planet(Base):
     __tablename__ = "Planet"
@@ -81,7 +81,7 @@ class Planet(Base):
     terrain = Column(String(100), nullable=False)
     surface_water = Column(String(100), nullable=False)
     gravity = Column(String(100), nullable=False)
-    favorite = Column(Boolean, default=False)
+
 
 class Starship(Base):
     __tablename__ = "Starships"
@@ -90,7 +90,7 @@ class Starship(Base):
     starship_name = Column(String, nullable="False")
     model = Column(String, nullable="False")
     manufacturer = Column(String, nullable="False")
-    favorite = Column(Boolean, default=False)
+
 
 
 ## Draw from SQLAlchemy base
