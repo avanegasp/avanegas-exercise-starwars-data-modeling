@@ -24,10 +24,10 @@ class User(Base):
     password = Column(String(100), nullable=False)
     suscription_date = Column(Date, nullable=False)
 
-    SignIns = relationship("SignIn", backref="signIn")
-    planetsFavorites = relationship("PlanetFavorite", backref="planetFavorite")
-    charactersFavorites = relationship("CharacterFavorite", backref="characterFavorite")
-    starshipsFavorite = relationship("StarshipFavorite", backref="starshipFavorite")
+    signIns = relationship("SignIn", backref="user")
+    planetsFavorites = relationship("PlanetFavorite", backref="user")
+    charactersFavorites = relationship("CharacterFavorite", backref="user")
+    starshipsFavorite = relationship("StarshipFavorite", backref="user")
 
 class PlanetFavorite(Base):
     __tablename__ = "PlanetFavorite"
