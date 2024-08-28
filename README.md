@@ -2,45 +2,45 @@
 # StarWars blog database
 <!--endhide-->
 
-**Important**: To do this activity, you need to `fork` [this repo](https://github.com/breatheco-de/exercise-starwars-data-modeling) into your **Github** account and then open the forked repo on Codespaces (recommended) or Gitpod.
-
-Inside the `src/models.py` file you will find a couple of classes describing an example database.
-
-Here is a 10 min video explaining what UML is: [https://www.youtube.com/watch?v=UI6lqHOVHic](https://www.youtube.com/watch?v=UI6lqHOVHic)
-
-We are going to be creating the Entity Relationship Diagram for your StarWars Blog Database, a very similar diagram to this one:
-
 ![Starwars Diagram](https://github.com/breatheco-de/exercise-starwars-data-modeling/blob/master/assets/example.png?raw=true)
 [Click to open diagram](https://app.quickdatabasediagrams.com/#/d/LxNXQZ)
 
-> 🔥 You can use this FREE tool to practice your diagram for the first time: https://app.quickdatabasediagrams.com/#/d/
+# Modelo de Datos del Blog de StarWars
+Este proyecto consiste en crear un modelo de datos para un blog de StarWars, utilizando Python y SQLAlchemy para definir y gestionar las relaciones entre las entidades en una base de datos. La finalidad es construir un diagrama de relación de entidad (ERD) para representar las interacciones entre usuarios, planetas, personajes, y sus favoritos dentro del blog.
 
-## 💻 Installation
+## Tecnologías Utilizadas
+- **Lenguaje:** Python
+- **ORM:** SQLAlchemy para el manejo de la base de datos
+- **Diagrama ERD:** Herramienta de diagramación de bases de datos, como QuickDBD
 
-1. Get inside the environment `$ pipenv shell`
+## Características del Proyecto
+Modelos y Relaciones
 
-2. Install all dependencies `$ pipenv install`
+### Usuario
 
-3. Generate the diagram as many times as you need `$ python src/models.py`
+- **Propiedades:** id, email, password, nombre, apellido, fecha_subscripción
+- **Relación uno-a-muchos** con Favoritos
 
-4. Open the file `diagram.png` to check out your UML diagram!
+### Personaje (Character)
 
+- **Propiedades:** id, nombre, especie, planeta_origen, descripcion
+- **Relación muchos-a-muchos** con Favoritos
 
-## 📝 Instructions
+### Planeta (Planet)
 
-Your Job is to update the `src/models.py` file with the code needed to replicate the StarWars data model.
+- **Propiedades:** id, nombre, clima, terreno, poblacion
+- **Relación muchos-a-muchos** con Favoritos
 
-The project is using the SQLAlchemy Python library to generate the database.
+Favoritos (Favorites)
 
-- Your project must have a table `User` that will represent your blog users.
-- Your blog users will be able to login and save their favorite planets and characters.
-- The database should store the user favorites.
-- The database should store characters and planets.
-- What other tables do you think a blog like this might have?
-- What properties should go inside the user? or inside the Character or Favorite table?
-- What are the relationships between those tables?
-- Please add at least 4 models with all of their properties.
-- Generate the `diagram.png` file at the end by running `$ python src/models.py` on the console.
+- **Propiedades:** id, usuario_id, personaje_id, planeta_id
+- **Relación muchos-a-muchos** con Usuario, Personaje y Planeta
 
-This and many other projects are built by students as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
+## Objetivos del Proyecto
+- **Modelado de Base de Datos:** Definir y crear tablas para usuarios, personajes, planetas, y favoritos, junto con las relaciones entre ellas.
+- **Generación de Diagramas UML:** Utilizar SQLAlchemy para crear un diagrama UML que represente las entidades y relaciones de la base de datos.
+- **Gestión de Dependencias:** Instalación y configuración del entorno con pipenv y manejo de dependencias para Python.
+
+## Mejora Continua
+El proyecto puede ser ampliado para incluir funcionalidades como autenticación de usuarios y operaciones CRUD adicionales para los personajes y planetas.
 
