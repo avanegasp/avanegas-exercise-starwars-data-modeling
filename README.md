@@ -3,7 +3,6 @@
 <!--endhide-->
 
 ![Starwars Diagram](https://github.com/breatheco-de/exercise-starwars-data-modeling/blob/master/assets/example.png?raw=true)
-[Click to open diagram](https://app.quickdatabasediagrams.com/#/d/LxNXQZ)
 
 # Modelo de Datos del Blog de StarWars
 Este proyecto consiste en crear un modelo de datos para un blog de StarWars, utilizando Python y SQLAlchemy para definir y gestionar las relaciones entre las entidades en una base de datos. La finalidad es construir un diagrama de relación de entidad (ERD) para representar las interacciones entre usuarios, planetas, personajes, y sus favoritos dentro del blog.
